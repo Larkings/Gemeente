@@ -49,12 +49,14 @@ public class GemeenteControllerTest {
   @Test
   public void testGetGemeente() {
     Gemeente expected = new Gemeente();
-    expected.setId(1);
+    expected.setGemeente("Breda");
 
-    when(gemeenteService.getGemeente("1")).thenReturn(expected);
+    when(gemeenteService.getGemeenteByGemeente("Breda")).thenReturn(expected);
 
-    ResponseEntity<Gemeente> actual = gemeenteController.getGemeente("1");
+    ResponseEntity<Gemeente> actual = gemeenteController.getGemeenteByGemeente("Breda");
 
     assertEquals(ResponseEntity.ok(expected), actual);
   }
+
+
 }

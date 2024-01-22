@@ -49,11 +49,11 @@ public class GemeenteServiceTest {
   @Test
   public void testGetGemeente() {
     Gemeente expected = new Gemeente();
-    expected.setId(1);
+    expected.setGemeente("Breda");
 
-    when(gemeenteRepository.findById("1")).thenReturn(Optional.of(expected));
+    when(gemeenteRepository.findByGemeente("Breda")).thenReturn(Optional.of(expected));
 
-    Gemeente actual = gemeenteService.getGemeente("1");
+    Gemeente actual = gemeenteService.getGemeenteByGemeente("Breda");
 
     assertEquals(expected, actual);
   }

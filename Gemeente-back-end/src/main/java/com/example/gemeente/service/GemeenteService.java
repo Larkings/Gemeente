@@ -41,9 +41,9 @@ public class GemeenteService {
     return gemeenteRepository.findAll();
   }
 
-  public Gemeente getGemeente(String id) {
-    return gemeenteRepository.findById(id)
-      .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Voer een getal in van 1 t/m 20"));
+  public Gemeente getGemeenteByGemeente(String gemeente) {
+    return gemeenteRepository.findByGemeente(gemeente)
+      .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Gemeente niet gevonden"));
   }
 
   public List<Gemeente> getGemeentenGesorteerdOpInwoners() {

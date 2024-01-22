@@ -20,11 +20,12 @@ public class GemeenteController {
     return gemeenteService.getAllGemeenten();
   }
 
-  @GetMapping("/{id}")
-  public ResponseEntity<Gemeente> getGemeente(@PathVariable String id) {
-    Gemeente gemeente = gemeenteService.getGemeente(id);
-    return ResponseEntity.ok(gemeente);
+  @GetMapping("/{gemeente}")
+  public ResponseEntity<Gemeente> getGemeenteByGemeente(@PathVariable String gemeente) {
+    Gemeente result = gemeenteService.getGemeenteByGemeente(gemeente);
+    return ResponseEntity.ok(result);
   }
+
   @GetMapping("/sorteer/inwoners")
   public List<Gemeente> getGemeentenGesorteerdOpInwoners() {
     return gemeenteService.getGemeentenGesorteerdOpInwoners();
